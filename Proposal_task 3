@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract ProposalContract {
+    struct Proposal {
+        string title;
+        string description;
+    }
+
+    Proposal public proposal;
+
+    // Function to create a new proposal with both title and description
+    function createProposal(string memory _title, string memory _description) public {
+        proposal = Proposal(_title, _description);
+    }
+
+    function getProposal() public view returns (string memory, string memory) {
+        return (proposal.title, proposal.description);
+    }
+}
